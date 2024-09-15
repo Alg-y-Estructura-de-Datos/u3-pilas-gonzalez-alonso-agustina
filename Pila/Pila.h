@@ -12,18 +12,18 @@ template <class T>
 class Pila
 {
 private:
-  Nodo<T> *tope;
+    Nodo<T> *tope;
 
 public:
-  Pila();
+    Pila();
 
-  ~Pila();
+    ~Pila();
 
-  void push(T dato);
+    void push(T dato);
 
-  T pop();
+    T pop();
 
-  bool esVacia();
+    bool esVacia();
 };
 
 /**
@@ -33,7 +33,7 @@ public:
 template <class T>
 Pila<T>::Pila()
 {
-  tope = nullptr;
+    tope = nullptr;
 }
 
 /**
@@ -43,11 +43,11 @@ Pila<T>::Pila()
  */
 template <class T>
 Pila<T>::~Pila() {
-  while(!esVacia()){
-    pop();
-  }
+    while(!esVacia()){
+        pop();
+    }
 
-  delete tope;
+    delete tope;
 }
 
 /**
@@ -59,11 +59,11 @@ template <class T>
 void Pila<T>::push(T dato)
 {
 
-  Nodo<T> *nuevo;
-  nuevo = new Nodo<T>;
-  nuevo->setDato(dato);
-  nuevo->setSiguiente(tope);
-  tope = nuevo;
+    Nodo<T> *nuevo;
+    nuevo = new Nodo<T>;
+    nuevo->setDato(dato);
+    nuevo->setSiguiente(tope);
+    tope = nuevo;
 }
 
 /**
@@ -74,16 +74,16 @@ void Pila<T>::push(T dato)
 template <class T>
 T Pila<T>::pop()
 {
-  if(esVacia()){
-    throw 400;
-  }
+    if(esVacia()){
+        throw 400;
+    }
 
-  T dato = tope->getDato();
-  Nodo<T> *aBorrar = tope;
-  tope = tope->getSiguiente();
+    T dato = tope->getDato();
+    Nodo<T> *aBorrar = tope;
+    tope = tope->getSiguiente();
 
-  delete aBorrar;
-  return dato;
+    delete aBorrar;
+    return dato;
 }
 
 /**
@@ -94,7 +94,7 @@ T Pila<T>::pop()
 template <class T>
 bool Pila<T>::esVacia()
 {
-  return tope == nullptr;
+    return tope == nullptr;
 }
 
 #endif // U03_PILAS_PILA_PILA_H_
